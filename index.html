@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.xue {
+				position: absolute;
+				display: inline-block;
+				/* opacity: .7; */
+				outline: none;
+				border: none;
+				animation: xuehua 5s infinite linear;
+			}
+			
+			.xue:hover {
+				cursor: pointer;
+				animation-play-state: paused;
+				opacity: 1;
+			}
+			
+			@keyframes xuehua{
+				from{
+					opacity: 1;
+					transform: translate(0, 0) rotate(0deg);
+				}
+				to{
+					opacity: 0;
+					transform: translate(0, 700px) rotateZ(720deg) rotateY(720deg) scale(1.5);
+				}
+			}
+			body{
+				background-color: #A52A2A;
+				background-image: url(img/bian.png);
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				background-attachment: fixed;
+				/*防止出现向下滚动条*/
+				overflow: hidden;
+			}
+			#w{
+				height: 360px;
+				margin: 60px 0 0 0;
+			}
+			#zo{
+				background-color:rgba(165,42,42,0);
+				width: 360px;
+				height: 40px;
+				text-align: center;
+				font-family: 华文彩云;
+				font-size: 25px;
+				font-weight: bold;
+				border: none;
+			}
+			option{
+				background-color:#A52A2A;
+				font-weight: bold;
+			}
+			#y{
+				float:right;
+				margin-top: 300px;
+
+			}
+		</style>
+		<script>
+			function b(){
+			    alert("Happy New Year！")<!--弹出警觉对话框-->
+			}
+		</script>
+	</head>
+	<body>
+		<frameset>
+			<div class="q">
+				<div id="w">
+					<select id="zo">
+						<option>新年快乐！</option>
+						<option>一只快乐兔，来到快乐山，</option>
+						<option>喝了快乐泉，又到快乐殿，</option>
+						<option>吃了快乐莲，遇到快乐仙，</option>
+						<option>听了快乐言：快乐很简单，</option>
+						<option>快乐在身边，快乐无极限，</option>
+						<option>快乐在兔年！</option>
+					</select>
+					<select id="zo">
+						<option id="ww">亲爱的朋友</option>
+						<option id="ww">今年过节不收礼，</option>
+						<option id="ww">其实给点也可以。</option>
+						<option id="ww">十块八块不嫌弃，</option>
+						<option id="ww">十万八万过得去。</option>
+						<option id="ww">你要真是没的送，</option>
+						<option id="ww">短信一条也可以。</option>
+						<option id="ww">兔年快乐！</option>
+					</select>
+					<select id="zo">
+						<option id="ww">在接下来的日子里</option>
+						<option id="ww">“钱”程似锦，</option>
+						<option id="ww">“富”如东海，</option>
+						<option id="ww">“瘦”比南山，</option>
+						<option id="ww">平安快乐，</option>
+						<option id="ww">梦想有望，</option>
+						<option id="ww">“鑫”春快乐！</option>
+					</select>
+					<select id="zo">
+						<option id="ww">一路有我</option>
+						<option id="ww">我不会像孙悟空一样有筋斗云，</option>
+						<option id="ww">但可以乘飞机飞到你身边！</option>
+						<option id="ww">我不会像魔术师一样瞬间转移，</option>
+						<option id="ww">但我可以花一毛钱给你送祝福：</option>
+						<option id="ww">祝你新年快乐，事事顺利！</option>
+					</select>
+					<img src="img/tu1.png" width="300px" height="260px" style=" float: left; margin-top: 360px; margin-left: 30px;" />
+					<button onclick="b()"  style="background-color: rgba(165,42,42,0); width: 260px;height: 260px; border: none;" id="an"><img src="img/fu.png" width="260px" height="260px" style="margin: 180px 230px; 0px 0px" /></button>
+					<img src="img/tu2.png" width="300px" height="260px" style=" float: right; margin: 30px;" />
+				</div>
+			</div>
+			<audio src="yinyue/y.mp3" controls="controls" loop="loop" id="y"></audio>
+		</frameset>
+		<script>
+		    function snow() {
+		        //  1、定义一片雪花模板
+		        var flake = document.createElement('div');
+		        // 雪花字符 ❄❉❅❆✻✼❇❈❊✥✺
+		        flake.innerHTML = '⭐';
+		        flake.style.cssText = 'position:absolute;color:#fff;';
+		
+		        //获取页面的高度 相当于雪花下落结束时Y轴的位置
+		        var documentHieght = window.innerHeight;
+		        //获取页面的宽度，利用这个数来算出，雪花开始时left的值
+		        var documentWidth = window.innerWidth;
+		
+		        //定义生成一片雪花的毫秒数
+		        var millisec =10;
+		        //2、设置第一个定时器，周期性定时器，每隔一段时间（millisec）生成一片雪花；
+		        setInterval(function() { //页面加载之后，定时器就开始工作
+		            //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
+		            var startLeft = Math.random() * documentWidth;
+		
+		            //随机生成雪花下落 结束 时left的值，相当于结束时X轴的位置
+		            var endLeft = Math.random() * documentWidth;
+		
+		            //随机生成雪花大小
+		            var flakeSize =  10+ 30 * Math.random();
+		
+		            //随机生成雪花下落持续时间
+		            var durationTime = 4000 + 7000 * Math.random();
+		
+		            //随机生成雪花下落 开始 时的透明度
+		            var startOpacity = 0.7 + 0.3 * Math.random();
+		
+		            //随机生成雪花下落 结束 时的透明度
+		            var endOpacity = 0.2 + 0.2 * Math.random();
+		
+		            //克隆一个雪花模板
+		            var cloneFlake = flake.cloneNode(true);
+		
+		            //第一次修改样式，定义克隆出来的雪花的样式
+		            cloneFlake.style.cssText += `
+		                    left: ${startLeft}px;
+		                    opacity: ${startOpacity};
+		                    font-size:${flakeSize}px;
+		                    top:-25px;
+		                        transition:${durationTime}ms;`;
+		
+		            //拼接到页面中
+		            document.body.appendChild(cloneFlake);
+		
+		            //设置第二个定时器，一次性定时器，
+		            //当第一个定时器生成雪花，并在页面上渲染出来后，修改雪花的样式，让雪花动起来；
+		            setTimeout(function() {
+		                //第二次修改样式
+		                cloneFlake.style.cssText += `
+		                            left: ${endLeft}px;
+		                            top:${documentHieght}px;
+		                            opacity:${endOpacity};`;
+		
+		                //4、设置第三个定时器，当雪花落下后，删除雪花。
+		                setTimeout(function() {
+		                    cloneFlake.remove();
+		                }, durationTime);
+		            }, 0);
+		
+		        }, millisec);
+		    }
+		    snow();
+		</script>
+	</body>
+</html>
